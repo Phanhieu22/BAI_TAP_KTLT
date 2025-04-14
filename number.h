@@ -18,4 +18,6 @@ Point nhapToaDoDiem();
 
 float nhapFloatHopLe(const char *tenToaDo);
 
+int nhapSoThucHopLe(const char *huongdan);
+
 #endif	

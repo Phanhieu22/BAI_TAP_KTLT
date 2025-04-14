@@ -47,3 +47,19 @@ float nhapFloatHopLe(const char *tenToaDo) {
     return value;
 }
 
+int nhapSoThucHopLe(const char *huongdan){
+	int value;
+	int status;
+	
+	do {
+        printf("%s: ", huongdan);
+        status = scanf("%d", &value);
+
+        if (status != 1) {
+            printf("? Dau vao khong hop le. Hay nhap mot so tu nhien!\n");
+            while (getchar() != '\n'); // Xoa bo dem
+        }
+    } while (status != 1);
+    
+}
+

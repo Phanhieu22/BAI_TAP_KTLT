@@ -1,15 +1,15 @@
-# Project: BAI_TAP_KTLT
+# Project: NEW_BAI_TAP_KTLT
 # Makefile created by Dev-C++ 5.11
 
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o helloWorld.o circle.o number.o polynomial.o
-LINKOBJ  = main.o helloWorld.o circle.o number.o polynomial.o
+OBJ      = main.o polynomial.o number.o helloWorld.o circle.o
+LINKOBJ  = main.o polynomial.o number.o helloWorld.o circle.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
-BIN      = BAI_TAP_KTLT.exe
+BIN      = NEW_BAI_TAP_KTLT.exe
 CXXFLAGS = $(CXXINCS) -std=c99
 CFLAGS   = $(INCS) -std=c99
 RM       = rm.exe -f
@@ -27,14 +27,14 @@ $(BIN): $(OBJ)
 main.o: main.c
 	$(CC) -c main.c -o main.o $(CFLAGS)
 
+polynomial.o: polynomial.c
+	$(CC) -c polynomial.c -o polynomial.o $(CFLAGS)
+
+number.o: number.c
+	$(CC) -c number.c -o number.o $(CFLAGS)
+
 helloWorld.o: helloWorld.c
 	$(CC) -c helloWorld.c -o helloWorld.o $(CFLAGS)
 
 circle.o: circle.c
 	$(CC) -c circle.c -o circle.o $(CFLAGS)
-
-number.o: number.c
-	$(CC) -c number.c -o number.o $(CFLAGS)
-
-polynomial.o: polynomial.c
-	$(CC) -c polynomial.c -o polynomial.o $(CFLAGS)

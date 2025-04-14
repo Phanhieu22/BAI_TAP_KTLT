@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <math.h>
 #include "polynomial.h"
+#include "number.h"
 
-void nhapDaThuc(Polynomial *p) {
-    printf("Nhap bac cua da thuc: ");
-    scanf("%d", &p->degree);
+void nhapDaThuc(Polynomial p) {
+    p.degree =  nhapSoThucHopLe("Nhap bac cua da thuc: ");
 
-    for (int i = p->degree; i >= 0; i--) {
+    for (int i = p.degree; i >= 0; i--) {
+    	
         printf("Nhap he so cua x^%d: ", i);
         scanf("%f", &p->coef[i]);
     }
