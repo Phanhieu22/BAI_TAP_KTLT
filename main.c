@@ -46,30 +46,31 @@ int main(){
 
 /* BAI TAP A.2 */
  int main(){
- 	printf("----- Bai tap A.2 -----");
-     Polynomial p1, p2, sum;
-     float x;
+ 	printf("----- Bai tap A.2 -----\n");
+    Polynomial p1, p2, sum;
+    float x1, x2 ,R;
+	
+    printf("Nhap da thuc thu nhat:\n");
+    nhapDaThuc(p1);
 
-     printf("Nhap da thuc thu nhat:\n");
-     nhapDaThuc(&p1);
+    printf("Nhap da thuc thu hai:\n");
+    nhapDaThuc(p2);
 
-     printf("Nhap da thuc thu hai:\n");
-     nhapDaThuc(&p2);
+    printf("\nDa thuc 1: ");
+    inDaThuc(p1);
 
-     printf("\nDa thuc 1: ");
-     inDaThuc(p1);
+    printf("Da thuc 2: ");
+    inDaThuc(p2);
 
-     printf("Da thuc 2: ");
-     inDaThuc(p2);
+    sum = tongDaThuc(p1, p2);
+    printf("Tong 2 da thuc: ");
+    inDaThuc(sum);
 
-     sum = tongDaThuc(p1, p2);
-     printf("Tong 2 da thuc: ");
-     inDaThuc(sum);
-
-     printf("\nNhap gia tri x de tinh gia tri da thuc tong: ");
-     scanf("%f", &x);
-
-     printf("Gia tri da thuc tong tai x = %.2f la: %.2f\n", x, tinhGiaTri(sum, x));
-
-     return 0;
+	x1 = nhapFloatHopLe("Nhap gia tri x1 de tinh gia tri da thuc a P(x1) = ");
+	x2 = nhapFloatHopLe("Nhap gia tri x2 de tinh gia tri da thuc a Q(x2) = ");
+	
+	R = tinhGiaTri(p1, x1) + tinhGiaTri(p2, x2);
+	
+	printf("R = P(x1) + Q(x2) = &f" , R);
+    return 0;
  }
