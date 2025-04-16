@@ -8,7 +8,7 @@ typedef struct {
     float coef[MAX_DEGREE + 1];
 } Polynomial;
 
-void nhapDaThuc(Polynomial p);
+Polynomial nhapDaThuc(Polynomial p);
 void inDaThuc(Polynomial p);
 float tinhGiaTri(Polynomial p, float x);
 Polynomial tongDaThuc(Polynomial a, Polynomial b);

@@ -8,6 +8,7 @@
 /* BAI TAP A.1 */
 /*
 int main(){
+	printf("----- Bai tap A.1 -----\n");
     float radius;
     Point point1, point2;
     int n;
@@ -50,11 +51,19 @@ int main(){
     Polynomial p1, p2, sum;
     float x1, x2 ,R;
 	
+	
+	 // Kh?i t?o m?ng coef
+    for (int i = 0; i <= MAX_DEGREE; i++){
+    	p1.coef[i] = 0;
+    	p2.coef[i] = 0;
+	}
+       
+        
     printf("Nhap da thuc thu nhat:\n");
-    nhapDaThuc(p1);
+    p1 = nhapDaThuc(p1);
 
     printf("Nhap da thuc thu hai:\n");
-    nhapDaThuc(p2);
+    p2 = nhapDaThuc(p2);
 
     printf("\nDa thuc 1: ");
     inDaThuc(p1);
@@ -71,6 +80,6 @@ int main(){
 	
 	R = tinhGiaTri(p1, x1) + tinhGiaTri(p2, x2);
 	
-	printf("R = P(x1) + Q(x2) = &f" , R);
+	printf("KET QUA: R = P(x1) + Q(x2) = %f" , R);
     return 0;
  }

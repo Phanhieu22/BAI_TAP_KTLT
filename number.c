@@ -61,5 +61,6 @@ int nhapSoThucHopLe(const char *huongdan){
         }
     } while (status != 1);
     
+    return value;
 }
 
