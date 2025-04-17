@@ -17,6 +17,10 @@ float tinhKhoangCachTrongKhongGian3D(Point point1, Point point2) {
     return sqrt(pow(point2.x - point1.x, 2) + pow(point2.y - point1.y, 2) + pow(point2.z - point1.z, 2));
 }
 
+float tinhKhoangCachTrongKhongGian2D(Point2D a, Point2D b) {
+    return sqrt(pow(b.x - a.x, 2) + pow(b.y - a.y, 2));
+}
+
 Point nhapToaDoDiem(){
 	 Point p;
 	 p.x = nhapFloatHopLe("X");
