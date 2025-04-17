@@ -5,7 +5,8 @@
 #include "number.h"
 #include "circle.h"
 #include "array.h"
-
+#include "sinhvien.h"
+#include "thisinhOlympic.h"
 /* BAI TAP A.1 */
 /*
 int main(){
@@ -377,6 +378,71 @@ int main(){
 //}
 
 
+//int main() {
+//	printf("----- Bai tap D.1 -----\n");
+//    int n;
+//    printf("Nhap so luong sinh vien: ");
+//    scanf("%d", &n);
+//
+//    // Cap phat dong danh sach sinh vien
+//    SinhVien *ds = (SinhVien *)malloc(n * sizeof(SinhVien));
+//
+//    // Nhap danh sach
+//    nhapDanhSach(ds, n);
+//
+//    // In danh sach day du
+//    printf("\nDANH SACH SINH VIEN:\n");
+//    inDanhSach(ds, n);
+//
+//    // In sinh vien co diem TA >= 9
+//    inTiengAnhLonHon9(ds, n);
+//
+//    // Sap xep theo diem TB va in ra
+//    sapXepTheoDiemTB(ds, n);
+//    printf("\nDanh sach sau khi sap xep theo diem TB tang dan:\n");
+//    inDanhSach(ds, n);
+//
+//    // In sinh vien co diem TB >= 8
+//    inSinhVienGioi(ds, n);
+//
+//    // Giai phong bo nho
+//    free(ds);
+//
+//    return 0;
+//}
+
+int main() {
+	printf("----- Bai tap D.1 -----\n");
+    int n, soTruong;
+    printf("Nhap so thi sinh: ");
+    scanf("%d", &n);
+    printf("Nhap so truong tham gia: ");
+    scanf("%d", &soTruong);
+
+    ThiSinhOlympic *ds = (ThiSinhOlympic *)malloc(n * sizeof(ThiSinhOlympic));
+
+    nhapDanhSachThiSinh(ds, n);
+
+    // Sap xep giam dan theo diem
+    sapXepTheoDiem(ds, n);
+
+    printf("\nDanh sach thi sinh giam dan theo diem:\n");
+    inDanhSachThiSinh(ds, n);
+
+    // Thong ke tong diem moi truong + tim truong co tong diem cao nhat
+    int truongMax = timTruongMaxDiem(ds, n, soTruong);
+    printf("\nTruong co tong diem cao nhat: Truong %d\n", truongMax);
+
+    // Nhap truong k tu ban phim va tinh tong diem
+    int k;
+    printf("\nNhap ma truong k muon tinh tong diem: ");
+    scanf("%d", &k);
+    float tong = tinhTongDiemTruong(ds, n, k);
+    printf("Tong diem cua truong %d la: %.2f\n", k, tong);
+
+    free(ds);
+    return 0;
+}
 
 
 
