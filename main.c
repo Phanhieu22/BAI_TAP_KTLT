@@ -8,7 +8,7 @@
 #include "sinhvien.h"
 #include "thisinhOlympic.h"
 #include "giangVien.h"
-
+#include "sach.h"
 /* BAI TAP A.1 */
 /*
 int main(){
@@ -526,27 +526,50 @@ int main(){
 //    return 0;
 //}
 
+//int main() {
+//	printf("----- Bai tap E.4 -----\n");
+//    GiangVien* danhSach = NULL;
+//    int n;
+//
+//    printf("Nhap so giang vien: ");
+//    scanf("%d", &n);
+//    nhapDanhSachGiangVien(&danhSach, n);
+//
+//    inDanhSachGiangVien(danhSach);
+//    timGiangVienThS(danhSach);
+//    tinhTienGiangDay(danhSach);
+//
+//    sapXepTheoSoTiet(&danhSach);
+//    printf("\n=== DANH SACH SAU KHI SAP XEP GIAM DAN THEO SO TIET ===\n");
+//    inDanhSachGiangVien(danhSach);
+//
+//    giaiPhongDSGiangVien(danhSach);
+//    return 0;
+//}
+
 int main() {
-	printf("----- Bai tap E.4 -----\n");
-    GiangVien* danhSach = NULL;
+    Sach* danhSach = NULL;
     int n;
 
-    printf("Nhap so giang vien: ");
+    printf("Nhap so luong sach: ");
     scanf("%d", &n);
-    nhapDanhSachGiangVien(&danhSach, n);
+    nhapDanhSachE5(&danhSach, n);
 
-    inDanhSachGiangVien(danhSach);
-    timGiangVienThS(danhSach);
-    tinhTienGiangDay(danhSach);
+    inDanhSachE5(danhSach);
 
-    sapXepTheoSoTiet(&danhSach);
-    printf("\n=== DANH SACH SAU KHI SAP XEP GIAM DAN THEO SO TIET ===\n");
-    inDanhSachGiangVien(danhSach);
+    xoaSach2010E5(&danhSach);
+    printf("\n=== DANH SACH SAU KHI XOA SACH NAM 2010 ===\n");
+    inDanhSachE5(danhSach);
 
-    giaiPhongDSGiangVien(danhSach);
+    thongKeTheoLoaiE5(danhSach);
+
+    sapXepTheoSoLuongE5(&danhSach);
+    printf("\n=== DANH SACH SAU KHI SAP XEP TANG DAN THEO SO LUONG ===\n");
+    inDanhSachE5(danhSach);
+
+    giaiPhongE5(danhSach);
     return 0;
 }
-
 
 
  
