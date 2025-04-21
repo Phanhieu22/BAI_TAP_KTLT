@@ -7,6 +7,8 @@
 #include "array.h"
 #include "sinhvien.h"
 #include "thisinhOlympic.h"
+#include "giangVien.h"
+
 /* BAI TAP A.1 */
 /*
 int main(){
@@ -486,41 +488,65 @@ int main(){
 //    return 0;
 //}
 
+//int main() {
+//	printf("----- Bai tap E.3 -----\n");
+//    Node* da_thuc1 = NULL;
+//    Node* da_thuc2 = NULL;
+//
+//    // Da thuc 1: 3x^3 - 4
+//    chenNode(&da_thuc1, 3, 3);
+//    chenNode(&da_thuc1, -4, 0);
+//
+//    // Da thuc 2: 2x^2 + 5x + 1
+//    chenNode(&da_thuc2, 2, 2);
+//    chenNode(&da_thuc2, 5, 1);
+//    chenNode(&da_thuc2, 1, 0);
+//
+//    printf("Da thuc 1: ");
+//    inDaThucLinklist(da_thuc1);
+//
+//    printf("Da thuc 2: ");
+//    inDaThucLinklist(da_thuc2);
+//
+//    double x;
+//    printf("\nNhap gia tri x: ");
+//    scanf("%lf", &x);
+//
+//    printf("Gia tri da thuc 1 tai x = %.2lf: %.2lf\n", x, tinhGiaTriDaThuc(da_thuc1, x));
+//    printf("Dao ham da thuc 1 tai x = %.2lf: %.2lf\n", x, daoHam(da_thuc1, x));
+//
+//    Node* tong = congDaThuc(da_thuc1, da_thuc2);
+//    printf("\nTong hai da thuc: ");
+//    inDaThucLinklist(tong);
+//
+//    giaiPhong(da_thuc1);
+//    giaiPhong(da_thuc2);
+//    giaiPhong(tong);
+//
+//    return 0;
+//}
+
 int main() {
-    Node* da_thuc1 = NULL;
-    Node* da_thuc2 = NULL;
+	printf("----- Bai tap E.4 -----\n");
+    GiangVien* danhSach = NULL;
+    int n;
 
-    // Da thuc 1: 3x^3 - 4
-    chenNode(&da_thuc1, 3, 3);
-    chenNode(&da_thuc1, -4, 0);
+    printf("Nhap so giang vien: ");
+    scanf("%d", &n);
+    nhapDanhSachGiangVien(&danhSach, n);
 
-    // Da thuc 2: 2x^2 + 5x + 1
-    chenNode(&da_thuc2, 2, 2);
-    chenNode(&da_thuc2, 5, 1);
-    chenNode(&da_thuc2, 1, 0);
+    inDanhSachGiangVien(danhSach);
+    timGiangVienThS(danhSach);
+    tinhTienGiangDay(danhSach);
 
-    printf("Da thuc 1: ");
-    inDaThucLinklist(da_thuc1);
+    sapXepTheoSoTiet(&danhSach);
+    printf("\n=== DANH SACH SAU KHI SAP XEP GIAM DAN THEO SO TIET ===\n");
+    inDanhSachGiangVien(danhSach);
 
-    printf("Da thuc 2: ");
-    inDaThucLinklist(da_thuc2);
-
-    double x;
-    printf("\nNhap gia tri x: ");
-    scanf("%lf", &x);
-
-    printf("Gia tri da thuc 1 tai x = %.2lf: %.2lf\n", x, tinhGiaTriDaThuc(da_thuc1, x));
-    printf("Dao ham da thuc 1 tai x = %.2lf: %.2lf\n", x, daoHam(da_thuc1, x));
-
-    Node* tong = congDaThuc(da_thuc1, da_thuc2);
-    printf("\nTong hai da thuc: ");
-    inDaThucLinklist(tong);
-
-    giaiPhong(da_thuc1);
-    giaiPhong(da_thuc2);
-    giaiPhong(tong);
-
+    giaiPhongDSGiangVien(danhSach);
     return 0;
 }
+
+
 
  
