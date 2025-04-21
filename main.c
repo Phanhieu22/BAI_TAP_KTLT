@@ -411,40 +411,116 @@ int main(){
 //    return 0;
 //}
 
+//int main() {
+//	printf("----- Bai tap D.2 -----\n");
+//    int n, soTruong;
+//    printf("Nhap so thi sinh: ");
+//    scanf("%d", &n);
+//    printf("Nhap so truong tham gia: ");
+//    scanf("%d", &soTruong);
+//
+//    ThiSinhOlympic *ds = (ThiSinhOlympic *)malloc(n * sizeof(ThiSinhOlympic));
+//
+//    nhapDanhSachThiSinh(ds, n);
+//
+//    // Sap xep giam dan theo diem
+//    sapXepTheoDiem(ds, n);
+//
+//    printf("\nDanh sach thi sinh giam dan theo diem:\n");
+//    inDanhSachThiSinh(ds, n);
+//
+//    // Thong ke tong diem moi truong + tim truong co tong diem cao nhat
+//    int truongMax = timTruongMaxDiem(ds, n, soTruong);
+//    printf("\nTruong co tong diem cao nhat: Truong %d\n", truongMax);
+//
+//    // Nhap truong k tu ban phim va tinh tong diem
+//    int k;
+//    printf("\nNhap ma truong k muon tinh tong diem: ");
+//    scanf("%d", &k);
+//    float tong = tinhTongDiemTruong(ds, n, k);
+//    printf("Tong diem cua truong %d la: %.2f\n", k, tong);
+//
+//    free(ds);
+//    return 0;
+//}
+
+//
+//int main() {
+//	printf("----- Bai tap E.2 -----\n");
+//    float *a = NULL;
+//    int n = 0;
+//    int chon;
+//    do {
+//        chon = Menu();
+//        switch (chon) {
+//            case 1:
+//                free(a); // giai phong bo nho cu neu co
+//                n = Nhap(&a);
+//                break;
+//            case 2:
+//                Xuat(n, a);
+//                break;
+//            case 3: {
+//                float max;
+//                if (MaxDuong(n, a, &max))
+//                    printf("Max duong: %.2f\n", max);
+//                else
+//                    printf("Khong co so duong trong day.\n");
+//                break;
+//            }
+//            case 4:
+//                if (Fibo(n, a))
+//                    printf("Day co tinh chat Fibonacci.\n");
+//                else
+//                    printf("Day KHONG co tinh chat Fibonacci.\n");
+//                break;
+//            case 5:
+//                printf("Thoat chuong trinh.\n");
+//                break;
+//            default:
+//                printf("Lua chon khong hop le!\n");
+//        }
+//    } while (chon != 5);
+//
+//    free(a);
+//    return 0;
+//}
+
 int main() {
-	printf("----- Bai tap D.1 -----\n");
-    int n, soTruong;
-    printf("Nhap so thi sinh: ");
-    scanf("%d", &n);
-    printf("Nhap so truong tham gia: ");
-    scanf("%d", &soTruong);
+    Node* da_thuc1 = NULL;
+    Node* da_thuc2 = NULL;
 
-    ThiSinhOlympic *ds = (ThiSinhOlympic *)malloc(n * sizeof(ThiSinhOlympic));
+    // Da thuc 1: 3x^3 - 4
+    chenNode(&da_thuc1, 3, 3);
+    chenNode(&da_thuc1, -4, 0);
 
-    nhapDanhSachThiSinh(ds, n);
+    // Da thuc 2: 2x^2 + 5x + 1
+    chenNode(&da_thuc2, 2, 2);
+    chenNode(&da_thuc2, 5, 1);
+    chenNode(&da_thuc2, 1, 0);
 
-    // Sap xep giam dan theo diem
-    sapXepTheoDiem(ds, n);
+    printf("Da thuc 1: ");
+    inDaThucLinklist(da_thuc1);
 
-    printf("\nDanh sach thi sinh giam dan theo diem:\n");
-    inDanhSachThiSinh(ds, n);
+    printf("Da thuc 2: ");
+    inDaThucLinklist(da_thuc2);
 
-    // Thong ke tong diem moi truong + tim truong co tong diem cao nhat
-    int truongMax = timTruongMaxDiem(ds, n, soTruong);
-    printf("\nTruong co tong diem cao nhat: Truong %d\n", truongMax);
+    double x;
+    printf("\nNhap gia tri x: ");
+    scanf("%lf", &x);
 
-    // Nhap truong k tu ban phim va tinh tong diem
-    int k;
-    printf("\nNhap ma truong k muon tinh tong diem: ");
-    scanf("%d", &k);
-    float tong = tinhTongDiemTruong(ds, n, k);
-    printf("Tong diem cua truong %d la: %.2f\n", k, tong);
+    printf("Gia tri da thuc 1 tai x = %.2lf: %.2lf\n", x, tinhGiaTriDaThuc(da_thuc1, x));
+    printf("Dao ham da thuc 1 tai x = %.2lf: %.2lf\n", x, daoHam(da_thuc1, x));
 
-    free(ds);
+    Node* tong = congDaThuc(da_thuc1, da_thuc2);
+    printf("\nTong hai da thuc: ");
+    inDaThucLinklist(tong);
+
+    giaiPhong(da_thuc1);
+    giaiPhong(da_thuc2);
+    giaiPhong(tong);
+
     return 0;
 }
-
-
-
 
  
