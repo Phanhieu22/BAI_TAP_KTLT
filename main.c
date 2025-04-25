@@ -13,6 +13,7 @@
 #include "fileUtils.h"
 #include "thiSinhF4.h"
 #include "diem3dF5.h"
+#include "dathucF6.h"
 /* BAI TAP A.1 */
 /*
 int main(){
@@ -743,67 +744,95 @@ int main(){
 //}
 //
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "diem3dF5.h"
+//int main() {
+//    Diem3D *ds = NULL;
+//    int n = 0;
+//    int chon;
+//    char filename[100];
+//
+//    do {
+//        printf("\n===== MENU =====\n");
+//        printf("1. Nhap danh sach diem\n");
+//        printf("2. Xuat ra file van ban\n");
+//        printf("3. Nhap tu file van ban\n");
+//        printf("4. Xuat ra file nhi phan\n");
+//        printf("5. Nhap tu file nhi phan\n");
+//        printf("0. Thoat\n");
+//        printf("Chon: ");
+//        scanf("%d", &chon);
+//        getchar();
+//
+//        switch (chon) {
+//            case 1:
+//                giaiPhongF5(&ds);
+//                nhapDanhSachDiemF5(&ds, &n);
+//                break;
+//            case 2:
+//                printf("Nhap ten file van ban: ");
+//                fgets(filename, sizeof(filename), stdin);
+//                filename[strcspn(filename, "\n")] = 0;
+//                xuatVanBanF5(ds, n, filename);
+//                break;
+//            case 3:
+//                giaiPhongF5(&ds);
+//                printf("Nhap ten file van ban: ");
+//                fgets(filename, sizeof(filename), stdin);
+//                filename[strcspn(filename, "\n")] = 0;
+//                nhapVanBanF5(&ds, &n, filename);
+//                break;
+//            case 4:
+//                printf("Nhap ten file nhi phan: ");
+//                fgets(filename, sizeof(filename), stdin);
+//                filename[strcspn(filename, "\n")] = 0;
+//                xuatNhiPhanF5(ds, n, filename);
+//                break;
+//            case 5:
+//                giaiPhongF5(&ds);
+//                printf("Nhap ten file nhi phan: ");
+//                fgets(filename, sizeof(filename), stdin);
+//                filename[strcspn(filename, "\n")] = 0;
+//                nhapNhiPhanF5(&ds, &n, filename);
+//                break;
+//            case 0:
+//                break;
+//            default:
+//                printf("Lua chon khong hop le.\n");
+//        }
+//    } while (chon != 0);
+//
+//    giaiPhongF5(&ds);
+//    return 0;
+//}
 
+
+// dathuc.txt
 int main() {
-    Diem3D *ds = NULL;
-    int n = 0;
-    int chon;
+	printf("---- BAI TAP F.6 ---- \n");
+    float *a = NULL, *b = NULL, *s = NULL;
+    int n, m, p;
     char filename[100];
 
-    do {
-        printf("\n===== MENU =====\n");
-        printf("1. Nhap danh sach diem\n");
-        printf("2. Xuat ra file van ban\n");
-        printf("3. Nhap tu file van ban\n");
-        printf("4. Xuat ra file nhi phan\n");
-        printf("5. Nhap tu file nhi phan\n");
-        printf("0. Thoat\n");
-        printf("Chon: ");
-        scanf("%d", &chon);
-        getchar();
+    printf("Nhap ten file: ");
+    fgets(filename, sizeof(filename), stdin);
+    filename[strcspn(filename, "\n")] = 0;
 
-        switch (chon) {
-            case 1:
-                giaiPhongF5(&ds);
-                nhapDanhSachDiemF5(&ds, &n);
-                break;
-            case 2:
-                printf("Nhap ten file van ban: ");
-                fgets(filename, sizeof(filename), stdin);
-                filename[strcspn(filename, "\n")] = 0;
-                xuatVanBanF5(ds, n, filename);
-                break;
-            case 3:
-                giaiPhongF5(&ds);
-                printf("Nhap ten file van ban: ");
-                fgets(filename, sizeof(filename), stdin);
-                filename[strcspn(filename, "\n")] = 0;
-                nhapVanBanF5(&ds, &n, filename);
-                break;
-            case 4:
-                printf("Nhap ten file nhi phan: ");
-                fgets(filename, sizeof(filename), stdin);
-                filename[strcspn(filename, "\n")] = 0;
-                xuatNhiPhanF5(ds, n, filename);
-                break;
-            case 5:
-                giaiPhongF5(&ds);
-                printf("Nhap ten file nhi phan: ");
-                fgets(filename, sizeof(filename), stdin);
-                filename[strcspn(filename, "\n")] = 0;
-                nhapNhiPhanF5(&ds, &n, filename);
-                break;
-            case 0:
-                break;
-            default:
-                printf("Lua chon khong hop le.\n");
-        }
-    } while (chon != 0);
+    docDaThucTuFileF6(filename, &a, &n, &b, &m);
+    printf("Da thuc A(x):\n");
+    inDaThucF6(a, n, "A");
+    printf("Da thuc B(x):\n");
+    inDaThucF6(b, m, "B");
 
-    giaiPhongF5(&ds);
+    float k, r;
+    printf("Nhap gia tri k: "); scanf("%f", &k);
+    printf("Nhap gia tri r: "); scanf("%f", &r);
+    float tong = tinhGiaTriDaThucF6(a, n, k) + tinhGiaTriDaThucF6(b, m, r);
+    printf("A(%.2f) + B(%.2f) = %.2f\n", k, r, tong);
+
+    congDaThucF6(a, n, b, m, &s, &p);
+    printf("S(x) = A(x) + B(x):\n");
+    inDaThucF6(s, p, "S");
+
+    free(a); free(b); free(s);
     return 0;
 }
 
