@@ -11,6 +11,7 @@
 #include "sach.h"
 #include <direct.h>
 #include "fileUtils.h"
+#include "thiSinhF4.h"
 /* BAI TAP A.1 */
 /*
 int main(){
@@ -634,60 +635,112 @@ int main(){
 //    return 0;
 //}
 
+//int main() {
+//	printf("---- BAI TAP F.3 ---- \n");
+//    float **matrix = NULL;
+//    int n = 0, m = 0;
+//    int luaChon;
+//
+//    do {
+//        printf("\n===== MENU =====\n");
+//        printf("1. Nhap ma tran tu ban phim\n");
+//        printf("2. Nhap ma tran tu file van ban\n");
+//        printf("3. Ghi ma tran ra file van ban\n");
+//        printf("4. Ghi ma tran ra file nhi phan\n");
+//        printf("5. Doc ma tran tu file nhi phan\n");
+//        printf("6. In ma tran hien tai\n");
+//        printf("0. Thoat\n");
+//        printf("Lua chon: ");
+//        scanf("%d", &luaChon);
+//
+//        switch (luaChon) {
+//            case 1:
+//                giaiPhongF3(matrix, n);
+//                nhapTuBanPhimF3(&matrix, &n, &m);
+//                break;
+//            case 2:
+//                giaiPhongF3(matrix, n);
+//                nhapTuFileVanBanF3("matran.txt", &matrix, &n, &m);
+//                break;
+//            case 3:
+//                xuatRaFileVanBanF3("matran_out.txt", matrix, n, m);
+//                printf("Da ghi ra file van ban.\n");
+//                break;
+//            case 4:
+//                ghiFileNhiPhanF3("matran.bin", matrix, n, m);
+//                printf("Da ghi ra file nhi phan.\n");
+//                break;
+//            case 5:
+//                giaiPhongF3(matrix, n);
+//                docFileNhiPhanF3("matran.bin", &matrix, &n, &m);
+//                printf("Da doc tu file nhi phan.\n");
+//                break;
+//            case 6:
+//                inMaTran(matrix, n, m);
+//                break;
+//            case 0:
+//                printf("Thoat chuong trinh.\n");
+//                break;
+//            default:
+//                printf("Lua chon khong hop le.\n");
+//        }
+//    } while (luaChon != 0);
+//
+//    giaiPhongF3(matrix, n);
+//    return 0;
+//}
+
 int main() {
-	printf("---- BAI TAP F.3 ---- \n");
-    float **matrix = NULL;
-    int n = 0, m = 0;
-    int luaChon;
+	printf("---- BAI TAP F.4 ---- \n");
+    ThiSinh *ds = NULL;
+    int n, chon;
 
     do {
         printf("\n===== MENU =====\n");
-        printf("1. Nhap ma tran tu ban phim\n");
-        printf("2. Nhap ma tran tu file van ban\n");
-        printf("3. Ghi ma tran ra file van ban\n");
-        printf("4. Ghi ma tran ra file nhi phan\n");
-        printf("5. Doc ma tran tu file nhi phan\n");
-        printf("6. In ma tran hien tai\n");
+        printf("1. Nhap danh sach tu ban phim\n");
+        printf("2. In danh sach\n");
+        printf("3. Ghi file nhi phan\n");
+        printf("4. Ghi file van ban\n");
+        printf("5. Doc file nhi phan\n");
+        printf("6. Doc file van ban\n");
+        printf("7. Tim diem toan cao nhat\n");
+        printf("8. Xoa diem ly thap nhat\n");
         printf("0. Thoat\n");
-        printf("Lua chon: ");
-        scanf("%d", &luaChon);
+        printf("Lua chon: "); scanf("%d", &chon);
 
-        switch (luaChon) {
+        switch (chon) {
             case 1:
-                giaiPhongF3(matrix, n);
-                nhapTuBanPhimF3(&matrix, &n, &m);
+                printf("Nhap so thi sinh: ");
+                scanf("%d", &n);
+                nhapDanhSachF4(&ds, n);
                 break;
             case 2:
-                giaiPhongF3(matrix, n);
-                nhapTuFileVanBanF3("matran.txt", &matrix, &n, &m);
+                inDanhSachF4(ds);
                 break;
             case 3:
-                xuatRaFileVanBanF3("matran_out.txt", matrix, n, m);
-                printf("Da ghi ra file van ban.\n");
+                ghiNhiPhanF4(ds, "thisinhF4.bin");
                 break;
             case 4:
-                ghiFileNhiPhanF3("matran.bin", matrix, n, m);
-                printf("Da ghi ra file nhi phan.\n");
+                ghiVanBanF4(ds, "thisinhF4.txt");
                 break;
             case 5:
-                giaiPhongF3(matrix, n);
-                docFileNhiPhanF3("matran.bin", &matrix, &n, &m);
-                printf("Da doc tu file nhi phan.\n");
+                docNhiPhanF4(&ds, "thisinhF4.bin");
                 break;
             case 6:
-                inMaTran(matrix, n, m);
+                docVanBanF4(&ds, "thisinhF4.txt");
                 break;
-            case 0:
-                printf("Thoat chuong trinh.\n");
+            case 7:
+                timToanMaxF4(ds);
                 break;
-            default:
-                printf("Lua chon khong hop le.\n");
+            case 8:
+                xoaLyMinF4(&ds);
+                break;
         }
-    } while (luaChon != 0);
+    } while (chon != 0);
 
-    giaiPhongF3(matrix, n);
     return 0;
 }
+
 
 
 
