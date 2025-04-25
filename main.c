@@ -9,6 +9,7 @@
 #include "thisinhOlympic.h"
 #include "giangVien.h"
 #include "sach.h"
+#include <direct.h>
 /* BAI TAP A.1 */
 /*
 int main(){
@@ -547,29 +548,66 @@ int main(){
 //    return 0;
 //}
 
-int main() {
-    Sach* danhSach = NULL;
-    int n;
 
-    printf("Nhap so luong sach: ");
-    scanf("%d", &n);
-    nhapDanhSachE5(&danhSach, n);
+//int main() {
+//	printf("----- Bai tap E.5 -----\n");
+//    Sach* danhSach = NULL;
+//    int n;
+//
+//    printf("Nhap so luong sach: ");
+//    scanf("%d", &n);
+//    nhapDanhSachE5(&danhSach, n);
+//
+//    inDanhSachE5(danhSach);
+//
+//    xoaSach2010E5(&danhSach);
+//    printf("\n=== DANH SACH SAU KHI XOA SACH NAM 2010 ===\n");
+//    inDanhSachE5(danhSach);
+//
+//    thongKeTheoLoaiE5(danhSach);
+//
+//    sapXepTheoSoLuongE5(&danhSach);
+//    printf("\n=== DANH SACH SAU KHI SAP XEP TANG DAN THEO SO LUONG ===\n");
+//    inDanhSachE5(danhSach);
+//
+//    giaiPhongE5(danhSach);
+//    return 0;
+//}
 
-    inDanhSachE5(danhSach);
 
-    xoaSach2010E5(&danhSach);
-    printf("\n=== DANH SACH SAU KHI XOA SACH NAM 2010 ===\n");
-    inDanhSachE5(danhSach);
-
-    thongKeTheoLoaiE5(danhSach);
-
-    sapXepTheoSoLuongE5(&danhSach);
-    printf("\n=== DANH SACH SAU KHI SAP XEP TANG DAN THEO SO LUONG ===\n");
-    inDanhSachE5(danhSach);
-
-    giaiPhongE5(danhSach);
-    return 0;
+// file.txt
+int main (){
+	printf("---- BAI TAP F.1 ---- \n");
+	
+	char fileName[100];
+	FILE *file;
+	char ch;
+	
+	char cwd[1024];
+	getcwd(cwd, sizeof(cwd));
+	printf("Thu muc hien tai: %s\n", cwd);
+	
+	printf("Xin vui long nhap ten tap tin :");
+	scanf("%s", fileName);
+	printf(fileName);
+	
+	file = fopen(fileName, "r");
+	
+	if(file == NULL){
+		printf("Khong the mo tap tin\n");
+        return 1;
+	}
+	
+	printf("Noi dung tap tin la \n");
+	
+	while((ch = fgetc(file)) != EOF){
+		putchar(ch);
+	}
+	
+	fclose(file);
+	return 0;
 }
+
 
 
  
