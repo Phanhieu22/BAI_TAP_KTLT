@@ -1,0 +1,3 @@
+Ten: Quat, So luong: 45, Loai: do dung ca nhan
+Ten: may vi tinh, So luong: 39, Loai: thiet bi dien tu
+Ten: chuot, So luong: 23, Loai: thiet bi dien tu

@@ -10,6 +10,7 @@
 #include "giangVien.h"
 #include "sach.h"
 #include <direct.h>
+#include "fileUtils.h"
 /* BAI TAP A.1 */
 /*
 int main(){
@@ -575,38 +576,64 @@ int main(){
 //}
 
 
-// file.txt
-int main (){
-	printf("---- BAI TAP F.1 ---- \n");
-	
-	char fileName[100];
-	FILE *file;
-	char ch;
-	
-	char cwd[1024];
-	getcwd(cwd, sizeof(cwd));
-	printf("Thu muc hien tai: %s\n", cwd);
-	
-	printf("Xin vui long nhap ten tap tin :");
-	scanf("%s", fileName);
-	printf(fileName);
-	
-	file = fopen(fileName, "r");
-	
-	if(file == NULL){
-		printf("Khong the mo tap tin\n");
-        return 1;
-	}
-	
-	printf("Noi dung tap tin la \n");
-	
-	while((ch = fgetc(file)) != EOF){
-		putchar(ch);
-	}
-	
-	fclose(file);
-	return 0;
+//// file.txt
+//int main (){
+//	printf("---- BAI TAP F.1 ---- \n");
+//	
+//	char fileName[100];
+//	FILE *file;
+//	char ch;
+//	
+//	char cwd[1024];
+//	getcwd(cwd, sizeof(cwd));
+//	printf("Thu muc hien tai: %s\n", cwd);
+//	
+//	printf("Xin vui long nhap ten tap tin :");
+//	scanf("%s", fileName);
+//	printf(fileName);
+//	
+//	file = fopen(fileName, "r");
+//	
+//	if(file == NULL){
+//		printf("Khong the mo tap tin\n");
+//        return 1;
+//	}
+//	
+//	printf("Noi dung tap tin la \n");
+//	
+//	while((ch = fgetc(file)) != EOF){
+//		putchar(ch);
+//	}
+//	
+//	fclose(file);
+//	return 0;
+//}
+
+int main() {
+	printf("---- BAI TAP F.2 ---- \n");
+    HangHoa ds[MAX];
+    int n;
+
+    nhapDanhSachF2(ds, &n);
+
+    xuatDanhSachRaFileF2(ds, n, "hanghoa.txt");
+
+    int tong = tinhTongSoLuongF2(ds, n);
+    printf("Tong so luong tat ca hang hoa: %d\n", tong);
+
+    char tenCanTim[100];
+    printf("Nhap ten hang can tim: ");
+    getchar(); // xoa \n
+    fgets(tenCanTim, sizeof(tenCanTim), stdin);
+    tenCanTim[strcspn(tenCanTim, "\n")] = 0;
+    timKiemF2(ds, n, tenCanTim);
+
+    sapXepVaGhiNhiPhanF2(ds, n, "hanghoa.dat");
+
+    printf("Da ghi danh sach da sap xep vao file nhi phan 'hanghoa.dat'\n");
+    return 0;
 }
+
 
 
 
