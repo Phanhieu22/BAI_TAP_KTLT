@@ -78,3 +78,102 @@ void sapXepVaGhiNhiPhanF2(HangHoa ds[], int n, const char *fileName) {
     fclose(f);
 }
 
+void nhapTuBanPhimF3(float ***mat, int *n, int *m) {
+    printf("Nhap so dong (n): ");
+    scanf("%d", n);
+    printf("Nhap so cot (m): ");
+    scanf("%d", m);
+
+    *mat = (float **)malloc((*n) * sizeof(float *));
+    for (int i = 0; i < *n; i++) {
+        (*mat)[i] = (float *)malloc((*m) * sizeof(float));
+        for (int j = 0; j < *m; j++) {
+            printf("mat[%d][%d] = ", i, j);
+            scanf("%f", &(*mat)[i][j]);
+        }
+    }
+}
+
+void nhapTuFileVanBanF3(const char *filename, float ***mat, int *n, int *m) {
+    FILE *f = fopen(filename, "r");
+    if (!f) {
+        perror("Khong mo duoc file");
+        return;
+    }
+    fscanf(f, "%d %d", n, m);
+
+    *mat = (float **)malloc((*n) * sizeof(float *));
+    for (int i = 0; i < *n; i++) {
+        (*mat)[i] = (float *)malloc((*m) * sizeof(float));
+        for (int j = 0; j < *m; j++) {
+            fscanf(f, "%f", &(*mat)[i][j]);
+        }
+    }
+    fclose(f);
+}
+
+void xuatRaFileVanBanF3(const char *filename, float **mat, int n, int m) {
+    FILE *f = fopen(filename, "w");
+    if (!f) {
+        perror("Khong mo duoc file de ghi");
+        return;
+    }
+    fprintf(f, "%d %d\n", n, m);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            fprintf(f, "%.2f ", mat[i][j]);
+        }
+        fprintf(f, "\n");
+    }
+    fclose(f);
+}
+
+void ghiFileNhiPhanF3(const char *filename, float **mat, int n, int m) {
+    FILE *f = fopen(filename, "wb");
+    if (!f) {
+        perror("Khong mo duoc file nhi phan de ghi");
+        return;
+    }
+    fwrite(&n, sizeof(int), 1, f);
+    fwrite(&m, sizeof(int), 1, f);
+    for (int i = 0; i < n; i++) {
+        fwrite(mat[i], sizeof(float), m, f);
+    }
+    fclose(f);
+}
+
+void docFileNhiPhanF3(const char *filename, float ***mat, int *n, int *m) {
+    FILE *f = fopen(filename, "rb");
+    if (!f) {
+        perror("Khong mo duoc file nhi phan");
+        return;
+    }
+    fread(n, sizeof(int), 1, f);
+    fread(m, sizeof(int), 1, f);
+
+    *mat = (float **)malloc((*n) * sizeof(float *));
+    for (int i = 0; i < *n; i++) {
+        (*mat)[i] = (float *)malloc((*m) * sizeof(float));
+        fread((*mat)[i], sizeof(float), *m, f);
+    }
+    fclose(f);
+}
+
+void inMaTranF3(float **mat, int n, int m) {
+    printf("Ma tran %dx%d:\n", n, m);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            printf("%.2f ", mat[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+
+void giaiPhongF3(float **mat, int n) {
+    for (int i = 0; i < n; i++) {
+        free(mat[i]);
+    }
+    free(mat);
+}
+

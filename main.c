@@ -609,28 +609,83 @@ int main(){
 //	return 0;
 //}
 
+//int main() {
+//	printf("---- BAI TAP F.2 ---- \n");
+//    HangHoa ds[MAX];
+//    int n;
+//
+//    nhapDanhSachF2(ds, &n);
+//
+//    xuatDanhSachRaFileF2(ds, n, "hanghoa.txt");
+//
+//    int tong = tinhTongSoLuongF2(ds, n);
+//    printf("Tong so luong tat ca hang hoa: %d\n", tong);
+//
+//    char tenCanTim[100];
+//    printf("Nhap ten hang can tim: ");
+//    getchar(); // xoa \n
+//    fgets(tenCanTim, sizeof(tenCanTim), stdin);
+//    tenCanTim[strcspn(tenCanTim, "\n")] = 0;
+//    timKiemF2(ds, n, tenCanTim);
+//
+//    sapXepVaGhiNhiPhanF2(ds, n, "hanghoa.dat");
+//
+//    printf("Da ghi danh sach da sap xep vao file nhi phan 'hanghoa.dat'\n");
+//    return 0;
+//}
+
 int main() {
-	printf("---- BAI TAP F.2 ---- \n");
-    HangHoa ds[MAX];
-    int n;
+	printf("---- BAI TAP F.3 ---- \n");
+    float **matrix = NULL;
+    int n = 0, m = 0;
+    int luaChon;
 
-    nhapDanhSachF2(ds, &n);
+    do {
+        printf("\n===== MENU =====\n");
+        printf("1. Nhap ma tran tu ban phim\n");
+        printf("2. Nhap ma tran tu file van ban\n");
+        printf("3. Ghi ma tran ra file van ban\n");
+        printf("4. Ghi ma tran ra file nhi phan\n");
+        printf("5. Doc ma tran tu file nhi phan\n");
+        printf("6. In ma tran hien tai\n");
+        printf("0. Thoat\n");
+        printf("Lua chon: ");
+        scanf("%d", &luaChon);
 
-    xuatDanhSachRaFileF2(ds, n, "hanghoa.txt");
+        switch (luaChon) {
+            case 1:
+                giaiPhongF3(matrix, n);
+                nhapTuBanPhimF3(&matrix, &n, &m);
+                break;
+            case 2:
+                giaiPhongF3(matrix, n);
+                nhapTuFileVanBanF3("matran.txt", &matrix, &n, &m);
+                break;
+            case 3:
+                xuatRaFileVanBanF3("matran_out.txt", matrix, n, m);
+                printf("Da ghi ra file van ban.\n");
+                break;
+            case 4:
+                ghiFileNhiPhanF3("matran.bin", matrix, n, m);
+                printf("Da ghi ra file nhi phan.\n");
+                break;
+            case 5:
+                giaiPhongF3(matrix, n);
+                docFileNhiPhanF3("matran.bin", &matrix, &n, &m);
+                printf("Da doc tu file nhi phan.\n");
+                break;
+            case 6:
+                inMaTran(matrix, n, m);
+                break;
+            case 0:
+                printf("Thoat chuong trinh.\n");
+                break;
+            default:
+                printf("Lua chon khong hop le.\n");
+        }
+    } while (luaChon != 0);
 
-    int tong = tinhTongSoLuongF2(ds, n);
-    printf("Tong so luong tat ca hang hoa: %d\n", tong);
-
-    char tenCanTim[100];
-    printf("Nhap ten hang can tim: ");
-    getchar(); // xoa \n
-    fgets(tenCanTim, sizeof(tenCanTim), stdin);
-    tenCanTim[strcspn(tenCanTim, "\n")] = 0;
-    timKiemF2(ds, n, tenCanTim);
-
-    sapXepVaGhiNhiPhanF2(ds, n, "hanghoa.dat");
-
-    printf("Da ghi danh sach da sap xep vao file nhi phan 'hanghoa.dat'\n");
+    giaiPhongF3(matrix, n);
     return 0;
 }
 
