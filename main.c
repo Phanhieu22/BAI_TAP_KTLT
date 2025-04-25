@@ -14,6 +14,7 @@
 #include "thiSinhF4.h"
 #include "diem3dF5.h"
 #include "dathucF6.h"
+#include "nhanvienF7.h"
 /* BAI TAP A.1 */
 /*
 int main(){
@@ -804,38 +805,67 @@ int main(){
 //    return 0;
 //}
 
+//
+//// dathuc.txt
+//int main() {
+//	printf("---- BAI TAP F.6 ---- \n");
+//    float *a = NULL, *b = NULL, *s = NULL;
+//    int n, m, p;
+//    char filename[100];
+//
+//    printf("Nhap ten file: ");
+//    fgets(filename, sizeof(filename), stdin);
+//    filename[strcspn(filename, "\n")] = 0;
+//
+//    docDaThucTuFileF6(filename, &a, &n, &b, &m);
+//    printf("Da thuc A(x):\n");
+//    inDaThucF6(a, n, "A");
+//    printf("Da thuc B(x):\n");
+//    inDaThucF6(b, m, "B");
+//
+//    float k, r;
+//    printf("Nhap gia tri k: "); scanf("%f", &k);
+//    printf("Nhap gia tri r: "); scanf("%f", &r);
+//    float tong = tinhGiaTriDaThucF6(a, n, k) + tinhGiaTriDaThucF6(b, m, r);
+//    printf("A(%.2f) + B(%.2f) = %.2f\n", k, r, tong);
+//
+//    congDaThucF6(a, n, b, m, &s, &p);
+//    printf("S(x) = A(x) + B(x):\n");
+//    inDaThucF6(s, p, "S");
+//
+//    free(a); free(b); free(s);
+//    return 0;
+//}
 
-// dathuc.txt
+
+
 int main() {
-	printf("---- BAI TAP F.6 ---- \n");
-    float *a = NULL, *b = NULL, *s = NULL;
-    int n, m, p;
-    char filename[100];
+	printf("---- BAI TAP F.7 ---- \n");
+    NhanVien *ds = NULL;
+    int n = docDanhSachF7("inputF7.txt", &ds);
 
-    printf("Nhap ten file: ");
-    fgets(filename, sizeof(filename), stdin);
-    filename[strcspn(filename, "\n")] = 0;
+    if (n == 0) {
+        printf("Khong doc duoc file hoac file rong.\n");
+        return 1;
+    }
 
-    docDaThucTuFileF6(filename, &a, &n, &b, &m);
-    printf("Da thuc A(x):\n");
-    inDaThucF6(a, n, "A");
-    printf("Da thuc B(x):\n");
-    inDaThucF6(b, m, "B");
+    FILE *out = fopen("output.txt", "w");
+    if (!out) {
+        printf("Khong mo duoc file output.txt\n");
+        free(ds);
+        return 1;
+    }
 
-    float k, r;
-    printf("Nhap gia tri k: "); scanf("%f", &k);
-    printf("Nhap gia tri r: "); scanf("%f", &r);
-    float tong = tinhGiaTriDaThucF6(a, n, k) + tinhGiaTriDaThucF6(b, m, r);
-    printf("A(%.2f) + B(%.2f) = %.2f\n", k, r, tong);
+    inDanhSachF7(stdout, ds, n);
+    demTheoPhongF7(stdout, ds, n);
+    inNhanVienLuongCaoNhatF7(stdout, ds, n);
 
-    congDaThucF6(a, n, b, m, &s, &p);
-    printf("S(x) = A(x) + B(x):\n");
-    inDaThucF6(s, p, "S");
+    inDanhSachF7(out, ds, n);
+    demTheoPhongF7(out, ds, n);
+    inNhanVienLuongCaoNhatF7(out, ds, n);
 
-    free(a); free(b); free(s);
+    fclose(out);
+    free(ds);
     return 0;
 }
-
-
-
  
