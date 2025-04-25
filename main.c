@@ -12,6 +12,7 @@
 #include <direct.h>
 #include "fileUtils.h"
 #include "thiSinhF4.h"
+#include "diem3dF5.h"
 /* BAI TAP A.1 */
 /*
 int main(){
@@ -690,58 +691,121 @@ int main(){
 //    return 0;
 //}
 
+//int main() {
+//	printf("---- BAI TAP F.4 ---- \n");
+//    ThiSinh *ds = NULL;
+//    int n, chon;
+//
+//    do {
+//        printf("\n===== MENU =====\n");
+//        printf("1. Nhap danh sach tu ban phim\n");
+//        printf("2. In danh sach\n");
+//        printf("3. Ghi file nhi phan\n");
+//        printf("4. Ghi file van ban\n");
+//        printf("5. Doc file nhi phan\n");
+//        printf("6. Doc file van ban\n");
+//        printf("7. Tim diem toan cao nhat\n");
+//        printf("8. Xoa diem ly thap nhat\n");
+//        printf("0. Thoat\n");
+//        printf("Lua chon: "); scanf("%d", &chon);
+//
+//        switch (chon) {
+//            case 1:
+//                printf("Nhap so thi sinh: ");
+//                scanf("%d", &n);
+//                nhapDanhSachF4(&ds, n);
+//                break;
+//            case 2:
+//                inDanhSachF4(ds);
+//                break;
+//            case 3:
+//                ghiNhiPhanF4(ds, "thisinhF4.bin");
+//                break;
+//            case 4:
+//                ghiVanBanF4(ds, "thisinhF4.txt");
+//                break;
+//            case 5:
+//                docNhiPhanF4(&ds, "thisinhF4.bin");
+//                break;
+//            case 6:
+//                docVanBanF4(&ds, "thisinhF4.txt");
+//                break;
+//            case 7:
+//                timToanMaxF4(ds);
+//                break;
+//            case 8:
+//                xoaLyMinF4(&ds);
+//                break;
+//        }
+//    } while (chon != 0);
+//
+//    return 0;
+//}
+//
+
+#include <stdio.h>
+#include <stdlib.h>
+#include "diem3dF5.h"
+
 int main() {
-	printf("---- BAI TAP F.4 ---- \n");
-    ThiSinh *ds = NULL;
-    int n, chon;
+    Diem3D *ds = NULL;
+    int n = 0;
+    int chon;
+    char filename[100];
 
     do {
         printf("\n===== MENU =====\n");
-        printf("1. Nhap danh sach tu ban phim\n");
-        printf("2. In danh sach\n");
-        printf("3. Ghi file nhi phan\n");
-        printf("4. Ghi file van ban\n");
-        printf("5. Doc file nhi phan\n");
-        printf("6. Doc file van ban\n");
-        printf("7. Tim diem toan cao nhat\n");
-        printf("8. Xoa diem ly thap nhat\n");
+        printf("1. Nhap danh sach diem\n");
+        printf("2. Xuat ra file van ban\n");
+        printf("3. Nhap tu file van ban\n");
+        printf("4. Xuat ra file nhi phan\n");
+        printf("5. Nhap tu file nhi phan\n");
         printf("0. Thoat\n");
-        printf("Lua chon: "); scanf("%d", &chon);
+        printf("Chon: ");
+        scanf("%d", &chon);
+        getchar();
 
         switch (chon) {
             case 1:
-                printf("Nhap so thi sinh: ");
-                scanf("%d", &n);
-                nhapDanhSachF4(&ds, n);
+                giaiPhongF5(&ds);
+                nhapDanhSachDiemF5(&ds, &n);
                 break;
             case 2:
-                inDanhSachF4(ds);
+                printf("Nhap ten file van ban: ");
+                fgets(filename, sizeof(filename), stdin);
+                filename[strcspn(filename, "\n")] = 0;
+                xuatVanBanF5(ds, n, filename);
                 break;
             case 3:
-                ghiNhiPhanF4(ds, "thisinhF4.bin");
+                giaiPhongF5(&ds);
+                printf("Nhap ten file van ban: ");
+                fgets(filename, sizeof(filename), stdin);
+                filename[strcspn(filename, "\n")] = 0;
+                nhapVanBanF5(&ds, &n, filename);
                 break;
             case 4:
-                ghiVanBanF4(ds, "thisinhF4.txt");
+                printf("Nhap ten file nhi phan: ");
+                fgets(filename, sizeof(filename), stdin);
+                filename[strcspn(filename, "\n")] = 0;
+                xuatNhiPhanF5(ds, n, filename);
                 break;
             case 5:
-                docNhiPhanF4(&ds, "thisinhF4.bin");
+                giaiPhongF5(&ds);
+                printf("Nhap ten file nhi phan: ");
+                fgets(filename, sizeof(filename), stdin);
+                filename[strcspn(filename, "\n")] = 0;
+                nhapNhiPhanF5(&ds, &n, filename);
                 break;
-            case 6:
-                docVanBanF4(&ds, "thisinhF4.txt");
+            case 0:
                 break;
-            case 7:
-                timToanMaxF4(ds);
-                break;
-            case 8:
-                xoaLyMinF4(&ds);
-                break;
+            default:
+                printf("Lua chon khong hop le.\n");
         }
     } while (chon != 0);
 
+    giaiPhongF5(&ds);
     return 0;
 }
-
-
 
 
 
