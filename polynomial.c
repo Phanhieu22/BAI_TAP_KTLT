@@ -14,7 +14,7 @@ Polynomial nhapDaThuc(Polynomial p) {
 }
 
 void inDaThuc(Polynomial p) {
-	printf("bac da thuc =  %d", p.degree);
+	printf("bac da thuc =  %d \n", p.degree);
     for (int i = p.degree; i >= 0; i--) {
         if (p.coef[i] != 0) {
             // In dau + hoac -
@@ -40,6 +40,7 @@ void inDaThuc(Polynomial p) {
         }
     }
     printf("\n");
+    printf("---------------------\n");
 }
 
 
