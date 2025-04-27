@@ -15,6 +15,7 @@
 #include "diem3dF5.h"
 #include "dathucF6.h"
 #include "nhanvienF7.h"
+#include "matranF8.h"
 /* BAI TAP A.1 */
 /*
 int main(){
@@ -805,8 +806,8 @@ int main(){
 //    return 0;
 //}
 
-//
-//// dathuc.txt
+
+// dathuc.txt
 //int main() {
 //	printf("---- BAI TAP F.6 ---- \n");
 //    float *a = NULL, *b = NULL, *s = NULL;
@@ -839,33 +840,47 @@ int main(){
 
 
 
+//int main() {
+//	printf("---- BAI TAP F.7 ---- \n");
+//    NhanVien *ds = NULL;
+//    int n = docDanhSachF7("inputF7.txt", &ds);
+//
+//    if (n == 0) {
+//        printf("Khong doc duoc file hoac file rong.\n");
+//        return 1;
+//    }
+//
+//    FILE *out = fopen("output.txt", "w");
+//    if (!out) {
+//        printf("Khong mo duoc file output.txt\n");
+//        free(ds);
+//        return 1;
+//    }
+//
+//    inDanhSachF7(stdout, ds, n);
+//    demTheoPhongF7(stdout, ds, n);
+//    inNhanVienLuongCaoNhatF7(stdout, ds, n);
+//
+//    inDanhSachF7(out, ds, n);
+//    demTheoPhongF7(out, ds, n);
+//    inNhanVienLuongCaoNhatF7(out, ds, n);
+//
+//    fclose(out);
+//    free(ds);
+//    return 0;
+//}
+
 int main() {
-	printf("---- BAI TAP F.7 ---- \n");
-    NhanVien *ds = NULL;
-    int n = docDanhSachF7("inputF7.txt", &ds);
-
-    if (n == 0) {
-        printf("Khong doc duoc file hoac file rong.\n");
-        return 1;
-    }
-
-    FILE *out = fopen("output.txt", "w");
-    if (!out) {
-        printf("Khong mo duoc file output.txt\n");
-        free(ds);
-        return 1;
-    }
-
-    inDanhSachF7(stdout, ds, n);
-    demTheoPhongF7(stdout, ds, n);
-    inNhanVienLuongCaoNhatF7(stdout, ds, n);
-
-    inDanhSachF7(out, ds, n);
-    demTheoPhongF7(out, ds, n);
-    inNhanVienLuongCaoNhatF7(out, ds, n);
-
-    fclose(out);
-    free(ds);
+	printf("---- BAI TAP F.8 ---- \n");
+    int a[MAX][MAX];
+    int m, n;
+    docMaTranF8("inputF8.txt", a, &m, &n);
+    printf("Ma tran:\n");
+    inMaTranF8(a, m, n);
+    tichPhanTuLeF8(a, m, n);
+    timChanLonNhatF8(a, m, n);
+    tongChiaHet7TrenHangF8(a, m, n);
     return 0;
 }
+
  

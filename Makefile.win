@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o polynomial.o number.o helloWorld.o circle.o array.o sinhvien.o thisinhOlympic.o danhSachLienKet.o giangVien.o sach.o fileUtils.o thiSinhF4.o diem3df5.o daThucF6.o dathuc.o nhanvienF7.o inputF7.o
-LINKOBJ  = main.o polynomial.o number.o helloWorld.o circle.o array.o sinhvien.o thisinhOlympic.o danhSachLienKet.o giangVien.o sach.o fileUtils.o thiSinhF4.o diem3df5.o daThucF6.o dathuc.o nhanvienF7.o inputF7.o
+OBJ      = main.o polynomial.o number.o helloWorld.o circle.o array.o sinhvien.o thisinhOlympic.o danhSachLienKet.o giangVien.o sach.o fileUtils.o thiSinhF4.o diem3df5.o daThucF6.o nhanvienF7.o matranF8.o
+LINKOBJ  = main.o polynomial.o number.o helloWorld.o circle.o array.o sinhvien.o thisinhOlympic.o danhSachLienKet.o giangVien.o sach.o fileUtils.o thiSinhF4.o diem3df5.o daThucF6.o nhanvienF7.o matranF8.o
 LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
 INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
 CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
@@ -71,3 +71,6 @@ daThucF6.o: daThucF6.c
 
 nhanvienF7.o: nhanvienF7.c
 	$(CC) -c nhanvienF7.c -o nhanvienF7.o $(CFLAGS)
+
+matranF8.o: matranF8.c
+	$(CC) -c matranF8.c -o matranF8.o $(CFLAGS)

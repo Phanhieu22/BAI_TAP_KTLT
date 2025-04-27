@@ -1,0 +1,10 @@
+DANH SACH NHAN VIEN:
+1001 - Nguyen Van A (Phong B) - Luong: 15000000
+
+SO NHAN VIEN THEO PHONG:
+Phong A: 0
+Phong B: 1
+Phong C: 0
+
+NHAN VIEN CO LUONG CAO NHAT:
+1001 - Nguyen Van A (Phong B) - Luong: 15000000
